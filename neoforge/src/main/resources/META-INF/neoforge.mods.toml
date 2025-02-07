@@ -1,0 +1,38 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+#issueTrackerURL = ""
+license = "MIT"
+
+[[mods]]
+modId = "hardcoretotemnerf"
+version = "${version}"
+displayName = "Hardcore Totem Nerf"
+authors = "murder_spagurder"
+description = '''
+Hardcore-inspired Nerfs and Debuffs for Totems of Undying
+'''
+logoFile = "assets/icon.png"
+
+[[dependencies.hardcoretotemnerf]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.hardcoretotemnerf]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21,1.22)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.hardcoretotemnerf]]
+modId = "architectury"
+type = "required"
+versionRange = "[13.0.8,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "hardcoretotemnerf.mixins.json"

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "hardcoretotemnerf",
+  "version": "${version}",
+  "name": "Hardcore Totem Nerf",
+  "description": "Hardcore-inspired Nerfs and Debuffs for Totems of Undying",
+  "authors": [
+    "murder_spagurder"
+  ],
+  "contact": {},
+  "license": "CC0-1.0",
+  "icon": "assets/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.github.murderspagurder.htn.fabric.HardcoreTotemNerfFabric"
+    ],
+    "client": []
+  },
+  "mixins": [
+    "hardcoretotemnerf.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "minecraft": ">=1.21 <1.22",
+    "java": ">=21",
+    "architectury": ">=13.0.8",
+    "fabric-api": "*"
+  },
+  "suggests": {}
+}
