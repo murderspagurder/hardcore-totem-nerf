@@ -73,7 +73,7 @@ public abstract class TotemMixin {
                             player.removeAllEffects();
                             server.execute(() -> {
                                 if (!player.isDeadOrDying()) {
-                                    player.hurt(player.damageSources().generic(), Float.MAX_VALUE);
+                                    player.hurtServer(player.serverLevel(), player.damageSources().generic(), Float.MAX_VALUE);
                                 }
                             });
                         } else {
