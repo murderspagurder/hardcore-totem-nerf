@@ -1,8 +1,8 @@
-package com.github.murderspagurder.htn.neoforge;
+package dev.spagurder.htn.neoforge;
 
 import net.neoforged.fml.common.Mod;
 
-import com.github.murderspagurder.htn.HardcoreTotemNerf;
+import dev.spagurder.htn.HardcoreTotemNerf;
 
 @Mod(HardcoreTotemNerf.MOD_ID)
 public final class HardcoreTotemNerfNeoForge {

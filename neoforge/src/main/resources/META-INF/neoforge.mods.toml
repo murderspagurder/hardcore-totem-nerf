@@ -1,6 +1,6 @@
 modLoader = "javafml"
 loaderVersion = "[4,)"
-#issueTrackerURL = ""
+issueTrackerURL = "https://github.com/murderspagurder/hardcore-totem-nerf/issues"
 license = "MIT"
 
 [[mods]]
@@ -18,21 +18,21 @@ modId = "neoforge"
 type = "required"
 versionRange = "[21.0,)"
 ordering = "NONE"
-side = "BOTH"
+side = "SERVER"
 
 [[dependencies.hardcoretotemnerf]]
 modId = "minecraft"
 type = "required"
 versionRange = "[1.21,1.22)"
 ordering = "NONE"
-side = "BOTH"
+side = "SERVER"
 
 [[dependencies.hardcoretotemnerf]]
 modId = "architectury"
 type = "required"
 versionRange = "[13.0.8,)"
 ordering = "AFTER"
-side = "BOTH"
+side = "SERVER"
 
 [[mixins]]
 config = "hardcoretotemnerf.mixins.json"

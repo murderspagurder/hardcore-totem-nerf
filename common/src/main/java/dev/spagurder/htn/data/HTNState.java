@@ -1,6 +1,6 @@
-package com.github.murderspagurder.htn.data;
+package dev.spagurder.htn.data;
 
-import com.github.murderspagurder.htn.HardcoreTotemNerf;
+import dev.spagurder.htn.HardcoreTotemNerf;
 import com.google.gson.Gson;
 
 import java.io.FileReader;

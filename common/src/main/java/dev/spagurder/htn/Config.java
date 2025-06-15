@@ -1,4 +1,4 @@
-package com.github.murderspagurder.htn;
+package dev.spagurder.htn;
 
 import com.moandjiezana.toml.Toml;
 

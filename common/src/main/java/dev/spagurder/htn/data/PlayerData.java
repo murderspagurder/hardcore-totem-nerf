@@ -1,4 +1,4 @@
-package com.github.murderspagurder.htn.data;
+package dev.spagurder.htn.data;
 
 import java.util.UUID;
 
