@@ -8,7 +8,7 @@
     "murder_spagurder"
   ],
   "contact": {},
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/icon.png",
   "environment": "*",
   "entrypoints": {
@@ -21,7 +21,7 @@
     "hardcoretotemnerf.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.16.10",
+    "fabricloader": ">=0.16.14",
     "minecraft": ">=1.21 <1.22",
     "java": ">=21",
     "architectury": ">=13.0.8",
