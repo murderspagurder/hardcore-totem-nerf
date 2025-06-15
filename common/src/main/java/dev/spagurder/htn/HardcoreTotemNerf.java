@@ -1,6 +1,6 @@
-package com.github.murderspagurder.htn;
+package dev.spagurder.htn;
 
-import com.github.murderspagurder.htn.events.EventHandlers;
+import dev.spagurder.htn.events.EventHandlers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

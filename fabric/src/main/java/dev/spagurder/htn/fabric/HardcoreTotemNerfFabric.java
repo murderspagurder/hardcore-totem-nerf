@@ -1,9 +1,7 @@
-package com.github.murderspagurder.htn.fabric;
+package dev.spagurder.htn.fabric;
 
-import com.github.murderspagurder.htn.HardcoreTotemNerf;
+import dev.spagurder.htn.HardcoreTotemNerf;
 import net.fabricmc.api.ModInitializer;
-
-import com.github.murderspagurder.htn.HardcoreTotemNerf;
 
 public final class HardcoreTotemNerfFabric implements ModInitializer {
     @Override

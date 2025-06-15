@@ -1,6 +1,6 @@
-package com.github.murderspagurder.htn.mixin;
+package dev.spagurder.htn.mixin;
 
-import com.github.murderspagurder.htn.HardcoreTotemNerf;
+import dev.spagurder.htn.HardcoreTotemNerf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;

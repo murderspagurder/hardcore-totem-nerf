@@ -1,8 +1,8 @@
-package com.github.murderspagurder.htn.mixin;
+package dev.spagurder.htn.mixin;
 
-import com.github.murderspagurder.htn.HardcoreTotemNerf;
-import com.github.murderspagurder.htn.data.PlayerData;
-import com.github.murderspagurder.htn.data.HTNState;
+import dev.spagurder.htn.HardcoreTotemNerf;
+import dev.spagurder.htn.data.PlayerData;
+import dev.spagurder.htn.data.HTNState;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
