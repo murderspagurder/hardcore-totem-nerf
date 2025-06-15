@@ -66,8 +66,8 @@ public abstract class TotemMixin {
                         MinecraftServer server = player.getServer();
                         if (server != null) {
                             for (ServerPlayer p : server.getPlayerList().getPlayers()) {
-                                p.sendSystemMessage(Component.literal(player.getName().getString() + " used too many totems."));
-                                p.sendSystemMessage(Component.literal(player.getName().getString() + " is now incapable of living."));
+                                p.displayClientMessage(Component.literal(player.getName().getString() + " used too many totems."), false);
+                                p.displayClientMessage(Component.literal(player.getName().getString() + " is now incapable of living."), false);
                             }
                             maxHealthAttribute.setBaseValue(1);
                             player.removeAllEffects();
