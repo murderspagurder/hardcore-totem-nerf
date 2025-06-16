@@ -1,0 +1,45 @@
+{
+  "hardcoretotemnerf.midnightconfig.title": "Hardcore Totem Nerf Config",
+
+  "hardcoretotemnerf.midnightconfig.category.limits": "Limits",
+  "hardcoretotemnerf.midnightconfig.category.maxHealth": "Max Health",
+  "hardcoretotemnerf.midnightconfig.category.buffs": "Buffs",
+  "hardcoretotemnerf.midnightconfig.category.debuffs": "Debuffs",
+  "hardcoretotemnerf.midnightconfig.category.instantHealth": "Instant Health",
+
+  "hardcoretotemnerf.midnightconfig.useCooldown": "Use Cooldown",
+  "hardcoretotemnerf.midnightconfig.usageCooldown": "Usage Cooldown (Seconds)",
+  "hardcoretotemnerf.midnightconfig.useUsageLimit": "Use Usage Limit",
+  "hardcoretotemnerf.midnightconfig.usageLimit": "Usage Limit",
+
+  "hardcoretotemnerf.midnightconfig.usageReducesMaxHealth": "Usage Reduces Max Health",
+  "hardcoretotemnerf.midnightconfig.maxHealthReductionAmount": "Max Health Reduction Amount",
+  "hardcoretotemnerf.midnightconfig.minimumMaxHealth": "Minimum Max Health",
+  "hardcoretotemnerf.midnightconfig.notchAppleRestoresMaxHealth": "Notch Apple Restores Max Health",
+  "hardcoretotemnerf.midnightconfig.maxHealthRestorationAmount": "Max Health Restoration Amount",
+  "hardcoretotemnerf.midnightconfig.maximumMaxHealth": "Maximum Max Health",
+
+  "hardcoretotemnerf.midnightconfig.disableAbsorption": "Disable Absorption",
+  "hardcoretotemnerf.midnightconfig.disableFireResistance": "Disable Fire Resistance",
+  "hardcoretotemnerf.midnightconfig.disableRegeneration": "Disable Regeneration",
+
+  "hardcoretotemnerf.midnightconfig.enableBlindness": "Enable Blindness",
+  "hardcoretotemnerf.midnightconfig.blindnessDuration": "Blindness Duration (Ticks)",
+  "hardcoretotemnerf.midnightconfig.blindnessLevel": "Blindness Level",
+  "hardcoretotemnerf.midnightconfig.enableSlowness": "Enable Slowness",
+  "hardcoretotemnerf.midnightconfig.slownessDuration": "Slowness Duration (Ticks)",
+  "hardcoretotemnerf.midnightconfig.slownessLevel": "Slowness Level",
+  "hardcoretotemnerf.midnightconfig.enableWeakness": "Enable Weakness",
+  "hardcoretotemnerf.midnightconfig.weaknessDuration": "Weakness Duration (Ticks)",
+  "hardcoretotemnerf.midnightconfig.weaknessLevel": "Weakness Level",
+  "hardcoretotemnerf.midnightconfig.enableMiningFatigue": "Enable Mining Fatigue",
+  "hardcoretotemnerf.midnightconfig.miningFatigueDuration": "Mining Fatigue Duration (Ticks)",
+  "hardcoretotemnerf.midnightconfig.miningFatigueLevel": "Mining Fatigue Level",
+
+  "hardcoretotemnerf.midnightconfig.minInstantHealthValue": "Minimum Instant Health Value",
+  "hardcoretotemnerf.midnightconfig.maxInstantHealthValue": "Maximum Instant Health Value",
+  "hardcoretotemnerf.midnightconfig.instantHealthDivider": "Instant Health Divider",
+
+  "key.hardcoretotemnerf.openConfig": "Open Config",
+  "category.hardcoretotemnerf.keybinds": "Hardcore Totem Nerf"
+}

@@ -22,7 +22,7 @@ configurable, and includes:
   - Mining Fatigue
 - Limit instant health regeneration (default half of max health)
 
-All of these options can be fine-tuned in `config/hardcoretotemnerf.toml`
+All of these options can be fine-tuned in `config/hardcoretotemnerf.json` or via the mod menu on clients.
 
 While this was built with the hardcore game mode in mind, this would certainly
 fit well in non-hardcore worlds and servers as well with some configuration 
