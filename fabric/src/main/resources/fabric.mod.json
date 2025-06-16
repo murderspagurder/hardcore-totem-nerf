@@ -29,5 +29,7 @@
     "architectury": ">=14.0.4",
     "fabric-api": "*"
   },
-  "suggests": {}
+  "suggests": {
+    "modmenu": "*"
+  }
 }
