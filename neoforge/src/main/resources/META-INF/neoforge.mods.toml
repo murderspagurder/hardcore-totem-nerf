@@ -16,21 +16,21 @@ logoFile = "assets/icon.png"
 [[dependencies.hardcoretotemnerf]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.2,)"
+versionRange = "[21.4,)"
 ordering = "NONE"
 side = "SERVER"
 
 [[dependencies.hardcoretotemnerf]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21.2,1.22)"
+versionRange = "[1.21.4,1.22)"
 ordering = "NONE"
 side = "SERVER"
 
 [[dependencies.hardcoretotemnerf]]
 modId = "architectury"
 type = "required"
-versionRange = "[14.0.4,)"
+versionRange = "[15.0.3,)"
 ordering = "AFTER"
 side = "SERVER"
 
