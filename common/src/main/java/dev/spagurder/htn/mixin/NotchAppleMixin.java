@@ -1,5 +1,6 @@
 package dev.spagurder.htn.mixin;
 
+import dev.spagurder.htn.Config;
 import dev.spagurder.htn.HardcoreTotemNerf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
@@ -17,7 +18,7 @@ public class NotchAppleMixin {
     @Inject(method = "completeUsingItem", at = @At("HEAD"))
     private void afterCompleteUsingItem(CallbackInfo ci) {
         LivingEntity entity = (LivingEntity) (Object) this;
-        if (HardcoreTotemNerf.config.notchAppleRestoresMaxHealth) {
+        if (Config.notchAppleRestoresMaxHealth) {
             if (entity instanceof ServerPlayer player) {
                 if (player.getUseItem().is(Items.ENCHANTED_GOLDEN_APPLE)) {
                     AttributeInstance maxHealthAttribute = player.getAttribute(Attributes.MAX_HEALTH);
@@ -25,8 +26,8 @@ public class NotchAppleMixin {
                         HardcoreTotemNerf.LOGGER.error("MAX_HEALTH attribute missing from player {}", player.getUUID());
                         return;
                     }
-                    float maxHealth = player.getMaxHealth() + HardcoreTotemNerf.config.maxHealthRestorationAmount;
-                    maxHealth = Math.min(maxHealth, HardcoreTotemNerf.config.maximumMaxHealth);
+                    float maxHealth = player.getMaxHealth() + Config.maxHealthRestorationAmount;
+                    maxHealth = Math.min(maxHealth, Config.maximumMaxHealth);
                     if (maxHealth > player.getMaxHealth()) {
                         maxHealthAttribute.setBaseValue(maxHealth);
                     }

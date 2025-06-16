@@ -1,5 +1,6 @@
 package dev.spagurder.htn.mixin;
 
+import dev.spagurder.htn.Config;
 import dev.spagurder.htn.HardcoreTotemNerf;
 import dev.spagurder.htn.data.PlayerData;
 import dev.spagurder.htn.data.HTNState;
@@ -31,16 +32,16 @@ public abstract class TotemMixin {
 
             // Check cooldown
             long currentTime = Instant.now().getEpochSecond();
-            if (HardcoreTotemNerf.config.useCooldown) {
-                if (currentTime - playerData.totemLastUsed < HardcoreTotemNerf.config.usageCooldown) {
+            if (Config.useCooldown) {
+                if (currentTime - playerData.totemLastUsed < Config.usageCooldown) {
                     cir.setReturnValue(false);
                     return;
                 }
             }
 
             // Check usages
-            if (HardcoreTotemNerf.config.useUsageLimit) {
-                if (playerData.totemUsages >= HardcoreTotemNerf.config.usageLimit) {
+            if (Config.useUsageLimit) {
+                if (playerData.totemUsages >= Config.usageLimit) {
                     cir.setReturnValue(false);
                 }
             }
@@ -57,11 +58,11 @@ public abstract class TotemMixin {
             playerData.totemUsages++;
 
             // Max health reduction
-            if (HardcoreTotemNerf.config.usageReducesMaxHealth) {
+            if (Config.usageReducesMaxHealth) {
                 AttributeInstance maxHealthAttribute = player.getAttribute(Attributes.MAX_HEALTH);
                 if (maxHealthAttribute != null) {
-                    float prospectiveMaxHealth = entity.getMaxHealth() - HardcoreTotemNerf.config.maxHealthReductionAmount;
-                    float maxHealth = Math.max(prospectiveMaxHealth, HardcoreTotemNerf.config.minimumMaxHealth);
+                    float prospectiveMaxHealth = entity.getMaxHealth() - Config.maxHealthReductionAmount;
+                    float maxHealth = Math.max(prospectiveMaxHealth, Config.minimumMaxHealth);
                     if (maxHealth <= 0) {
                         MinecraftServer server = player.getServer();
                         if (server != null) {
@@ -89,54 +90,54 @@ public abstract class TotemMixin {
             }
 
             // Disable buffs
-            if (HardcoreTotemNerf.config.disableAbsorption) {
+            if (Config.disableAbsorption) {
                 player.removeEffect(MobEffects.ABSORPTION);
             }
-            if (HardcoreTotemNerf.config.disableFireResistance) {
+            if (Config.disableFireResistance) {
                 player.removeEffect(MobEffects.FIRE_RESISTANCE);
             }
-            if (HardcoreTotemNerf.config.disableRegeneration) {
+            if (Config.disableRegeneration) {
                 player.removeEffect(MobEffects.REGENERATION);
             }
 
             // Apply debuffs
-            if (HardcoreTotemNerf.config.enableBlindness) {
+            if (Config.enableBlindness) {
                 player.addEffect(
                         new MobEffectInstance(
                                 MobEffects.BLINDNESS,
-                                HardcoreTotemNerf.config.blindnessDuration,
-                                HardcoreTotemNerf.config.blindnessLevel)
+                                Config.blindnessDuration,
+                                Config.blindnessLevel)
                 );
             }
-            if (HardcoreTotemNerf.config.enableSlowness) {
+            if (Config.enableSlowness) {
                 player.addEffect(
                         new MobEffectInstance(
                                 MobEffects.MOVEMENT_SLOWDOWN,
-                                HardcoreTotemNerf.config.slownessDuration,
-                                HardcoreTotemNerf.config.slownessLevel)
+                                Config.slownessDuration,
+                                Config.slownessLevel)
                 );
             }
-            if (HardcoreTotemNerf.config.enableWeakness) {
+            if (Config.enableWeakness) {
                 player.addEffect(
                         new MobEffectInstance(
                                 MobEffects.WEAKNESS,
-                                HardcoreTotemNerf.config.weaknessDuration,
-                                HardcoreTotemNerf.config.weaknessLevel)
+                                Config.weaknessDuration,
+                                Config.weaknessLevel)
                 );
             }
-            if (HardcoreTotemNerf.config.enableMiningFatigue) {
+            if (Config.enableMiningFatigue) {
                 player.addEffect(
                         new MobEffectInstance(
                                 MobEffects.DIG_SLOWDOWN,
-                                HardcoreTotemNerf.config.miningFatigueDuration,
-                                HardcoreTotemNerf.config.miningFatigueLevel)
+                                Config.miningFatigueDuration,
+                                Config.miningFatigueLevel)
                 );
             }
 
             // Update health
-            float health = player.getMaxHealth() / HardcoreTotemNerf.config.instantHealthDivider;
-            health = Math.min(health, HardcoreTotemNerf.config.maxInstantHealthValue);
-            health = Math.max(health, HardcoreTotemNerf.config.minInstantHealthValue);
+            float health = player.getMaxHealth() / Config.instantHealthDivider;
+            health = Math.min(health, Config.maxInstantHealthValue);
+            health = Math.max(health, Config.minInstantHealthValue);
             player.setHealth(health);
         }
     }

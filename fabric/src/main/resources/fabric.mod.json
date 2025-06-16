@@ -15,7 +15,9 @@
     "main": [
       "dev.spagurder.htn.fabric.HardcoreTotemNerfFabric"
     ],
-    "client": []
+    "client": [
+      "dev.spagurder.htn.fabric.client.HardcoreTotemNerfFabricClient"
+    ]
   },
   "mixins": [
     "hardcoretotemnerf.mixins.json"
