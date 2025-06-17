@@ -25,7 +25,6 @@ public abstract class TotemMixin {
 
     @Inject(method = "checkTotemDeathProtection", at = @At("HEAD"), cancellable = true)
     private void beforeCheckTotemDeathProtection(DamageSource damageSource, CallbackInfoReturnable<Boolean> cir) {
-        HardcoreTotemNerf.LOGGER.debug("Checking Totem");
         LivingEntity entity = (LivingEntity) (Object) this;
         if (entity instanceof ServerPlayer player) {
             // Load player data
@@ -51,7 +50,6 @@ public abstract class TotemMixin {
 
     @Inject(method = "checkTotemDeathProtection", at = @At("RETURN"))
     private void afterCheckTotemDeathProtection(DamageSource damageSource, CallbackInfoReturnable<Boolean> cir) {
-        HardcoreTotemNerf.LOGGER.debug("Using Totem");
         LivingEntity entity = (LivingEntity) (Object) this;
         if (cir.getReturnValue() && entity instanceof ServerPlayer player) {
             // Update player data
