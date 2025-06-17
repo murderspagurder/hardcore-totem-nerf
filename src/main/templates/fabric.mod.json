@@ -18,9 +18,6 @@
       "dev.spagurder.htn.loaders.fabric.client.FabricClientEntrypoint"
     ]
   },
-  "mixins": [
-    "hardcoretotemnerf.mixins.json"
-  ],
   "depends": {
     "fabric-api": "*"
   },
