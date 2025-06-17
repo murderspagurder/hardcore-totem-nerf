@@ -1,12 +1,13 @@
 {
-  "package": "com.example.mymod.mixin",
+  "package": "dev.spagurder.htn.mixin",
   "required": true,
   "minVersion": "0.8",
   "injectors": {
     "defaultRequire": 1
   },
   "compatibilityLevel": "JAVA_17",
-  "client": [
-    "TitleScreenMixin"
+  "mixins": [
+    "NotchAppleMixin",
+    "TotemMixin"
   ]
 }

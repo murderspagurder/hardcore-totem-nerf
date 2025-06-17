@@ -8,6 +8,13 @@ fun prop(name: String, consumer: (prop: String) -> Unit) {
 }
 
 val minecraft = property("deps.minecraft") as String;
+val loader = when {
+    modstitch.isLoom -> "fabric"
+    modstitch.isModDevGradleRegular -> "neoforge"
+    modstitch.isModDevGradleLegacy -> "forge"
+    else -> throw IllegalStateException("Unsupported Loader")
+}
+val midnightlibVersion = property("deps.midnightlib") as String;
 
 modstitch {
     minecraftVersion = minecraft
@@ -32,9 +39,11 @@ modstitch {
     metadata {
         modId = "hardcoretotemnerf"
         modName = "Hardcore Totem Nerf"
-        modVersion = "1.0.0"
+        modVersion = "2.0.0+${minecraft}-${loader}"
         modGroup = "dev.spagurder"
         modAuthor = "murder_spagurder"
+        modDescription = "Hardcore-inspired Nerfs and Debuffs for Totems of Undying"
+        modLicense = "MIT"
 
         fun <K, V> MapProperty<K, V>.populate(block: MapProperty<K, V>.() -> Unit) {
             block()
@@ -45,7 +54,8 @@ modstitch {
             // modstitch doesn't initially support. Some examples below.
             put("mod_issue_tracker", "https://github.com/murderspagurder/hardcore-totem-nerf/issues")
             put("pack_format", when (property("deps.minecraft")) {
-                "1.20.1" -> 15
+                "1.21" -> 34
+                "1.21.2" -> 42
                 "1.21.4" -> 46
                 else -> throw IllegalArgumentException("Please store the resource pack version for ${property("deps.minecraft")} in build.gradle.kts! https://minecraft.wiki/w/Pack_format")
             }.toString())
@@ -118,8 +128,11 @@ stonecutter {
 // use the modstitch.createProxyConfigurations(sourceSets["client"]) function.
 dependencies {
     modstitch.loom {
-        modstitchModImplementation("net.fabricmc.fabric-api:fabric-api:0.112.0+1.21.4")
+        val fabricApiVersion = property("deps.fabric-api") as String;
+        modstitchModImplementation("net.fabricmc.fabric-api:fabric-api:${fabricApiVersion}")
     }
 
     // Anything else in the dependencies block will be used for all platforms.
+    modstitchModImplementation("maven.modrinth:midnightlib:${midnightlibVersion}")
+    modstitchJiJ("maven.modrinth:midnightlib:${midnightlibVersion}")
 }

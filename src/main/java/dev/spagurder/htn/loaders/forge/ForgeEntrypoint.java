@@ -1,7 +1,7 @@
 //? if forge {
 /*package com.example.mymod.loaders.forge;
 
-import com.example.mymod.ExampleMod;
+import dev.spagurder.htn.ExampleMod;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.fml.common.Mod;
 import org.slf4j.Logger;
