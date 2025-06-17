@@ -7,7 +7,7 @@ fun prop(name: String, consumer: (prop: String) -> Unit) {
         ?.let(consumer)
 }
 
-val baseVersion = property("base_version") as String
+val baseVersion = property("mod.version") as String
 val minecraft = property("deps.minecraft") as String;
 val loader = when {
     modstitch.isLoom -> "fabric"
@@ -137,11 +137,10 @@ dependencies {
     modstitchModImplementation("maven.modrinth:midnightlib:${midnightlibVersion}")
     modstitchJiJ("maven.modrinth:midnightlib:${midnightlibVersion}")
 }
-/*
+
 tasks.register<Copy>("buildAndCollect") {
     group = "build"
-    from(tasks.remapJar.get().archiveFile)
-    into(rootProject.layout.buildDirectory.file("libs/$baseVersion"))
+    from(modstitch.finalJarTask.map { it.archiveFile })
+    into(rootProject.layout.buildDirectory.file("libs/${project.property("mod.version")}"))
     dependsOn("build")
 }
-*/
