@@ -8,6 +8,11 @@ stonecutter registerChiseled tasks.register("chiseledBuild", stonecutter.chisele
     ofTask("build")
 }
 
+stonecutter registerChiseled tasks.register("chiseledBuildAndCollect", stonecutter.chiseled) {
+    group = "project"
+    ofTask("buildAndCollect")
+}
+
 allprojects {
     repositories {
         mavenCentral()

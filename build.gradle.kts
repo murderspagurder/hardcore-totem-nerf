@@ -7,6 +7,7 @@ fun prop(name: String, consumer: (prop: String) -> Unit) {
         ?.let(consumer)
 }
 
+val baseVersion = property("base_version") as String
 val minecraft = property("deps.minecraft") as String;
 val loader = when {
     modstitch.isLoom -> "fabric"
@@ -39,7 +40,7 @@ modstitch {
     metadata {
         modId = "hardcoretotemnerf"
         modName = "Hardcore Totem Nerf"
-        modVersion = "2.0.0+${minecraft}-${loader}"
+        modVersion = "${baseVersion}+${minecraft}-${loader}"
         modGroup = "dev.spagurder"
         modAuthor = "murder_spagurder"
         modDescription = "Hardcore-inspired Nerfs and Debuffs for Totems of Undying"
@@ -136,3 +137,11 @@ dependencies {
     modstitchModImplementation("maven.modrinth:midnightlib:${midnightlibVersion}")
     modstitchJiJ("maven.modrinth:midnightlib:${midnightlibVersion}")
 }
+/*
+tasks.register<Copy>("buildAndCollect") {
+    group = "build"
+    from(tasks.remapJar.get().archiveFile)
+    into(rootProject.layout.buildDirectory.file("libs/$baseVersion"))
+    dependsOn("build")
+}
+*/
