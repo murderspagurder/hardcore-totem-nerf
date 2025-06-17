@@ -47,5 +47,5 @@ stonecutter {
     }
 }
 
-rootProject.name = "Example Mod"
+rootProject.name = "Hardcore Totem Nerf"
 
