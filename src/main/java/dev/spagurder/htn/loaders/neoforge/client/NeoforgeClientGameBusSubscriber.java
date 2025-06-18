@@ -15,7 +15,7 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
         bus = EventBusSubscriber.Bus.GAME,
         value = Dist.CLIENT
 )
-public class NeoforgeClientClientTickHandler {
+public class NeoforgeClientGameBusSubscriber {
 
     @SubscribeEvent
     public static void onClientTick(ClientTickEvent.Post event) {

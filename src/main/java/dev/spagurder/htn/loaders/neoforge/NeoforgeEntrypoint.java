@@ -1,12 +1,14 @@
 //? if neoforge {
 /*package dev.spagurder.htn.loaders.neoforge;
 
+import dev.spagurder.htn.HTNCommands;
 import dev.spagurder.htn.HardcoreTotemNerf;
 import dev.spagurder.htn.data.HTNState;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
 @Mod(HardcoreTotemNerf.MOD_ID)
@@ -29,6 +31,11 @@ public class NeoforgeEntrypoint {
         if (event.getEntity() instanceof ServerPlayer player) {
             HTNState.unloadAndSavePlayerData(player.getUUID());
         }
+    }
+
+    @SubscribeEvent
+    public static void onRegisterCommands(RegisterCommandsEvent event) {
+        HTNCommands.register(event.getDispatcher());
     }
 
 }

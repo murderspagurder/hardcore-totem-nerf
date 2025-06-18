@@ -13,7 +13,7 @@ import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
         bus = EventBusSubscriber.Bus.MOD,
         value = Dist.CLIENT
 )
-public class NeoforgeClientKeybinds {
+public class NeoforgeClientModBusSubscriber {
 
     @SubscribeEvent
     public static void onRegisterKeyMappings(RegisterKeyMappingsEvent event) {
