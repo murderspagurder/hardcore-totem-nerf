@@ -10,8 +10,6 @@ public class HardcoreTotemNerf {
     public static final Logger LOGGER = LogUtils.getLogger();
     public static final String MOD_ID = "hardcoretotemnerf";
 
-    public static MinecraftServer server;
-
     public static void initialize() {
         MidnightConfig.init(MOD_ID, Config.class);
     }
