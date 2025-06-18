@@ -1,5 +1,6 @@
 plugins {
     id("dev.isxander.modstitch.base") version "0.5.12"
+    id("dev.kikugie.j52j") version "2.0"
 }
 
 fun prop(name: String, consumer: (prop: String) -> Unit) {
@@ -17,12 +18,20 @@ val loader = when {
 }
 val midnightlibVersion = property("deps.midnightlib") as String;
 
+j52j {
+    params {
+        prettyPrinting = true
+    }
+}
+
 modstitch {
     minecraftVersion = minecraft
 
     // Alternatively use stonecutter.eval if you have a lot of versions to target.
     // https://stonecutter.kikugie.dev/stonecutter/guide/setup#checking-versions
     javaTarget = when (minecraft) {
+        "1.20" -> 17
+        "1.20.1" -> 17
         "1.21" -> 21
         "1.21.2" -> 21
         "1.21.4" -> 21
@@ -56,6 +65,8 @@ modstitch {
             // modstitch doesn't initially support. Some examples below.
             put("mod_issue_tracker", "https://github.com/murderspagurder/hardcore-totem-nerf/issues")
             put("pack_format", when (property("deps.minecraft")) {
+                "1.20" -> 15
+                "1.20.1" -> 15
                 "1.21" -> 34
                 "1.21.2" -> 42
                 "1.21.4" -> 46

@@ -6,8 +6,12 @@
     "defaultRequire": 1
   },
   "compatibilityLevel": "JAVA_17",
+  //? if forge {
+  /*"refmap": "hardcoretotemnerf.refmap.json",
+  *///?}
   "mixins": [
     "NotchAppleMixin",
-    "TotemMixin"
+    "TotemMixin",
+    "MidnightConfigUpdateMixin"
   ]
 }

@@ -117,10 +117,4 @@ public class Config extends MidnightConfig {
         }
     }
 
-    @Override
-    public void writeChanges(String modid) {
-        super.writeChanges(modid);
-        runUpdateCallbacks();
-    }
-
 }

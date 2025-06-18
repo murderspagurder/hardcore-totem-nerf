@@ -11,11 +11,13 @@ license = "${mod_license}"
     authors = "${mod_author}"
 
 [[dependencies.${mod_id}]]
-    modId = "neoforge"
+    modId = "forge"
     mandatory = true
+    versionRange = "[46,)"
     ordering = "NONE"
     side = "BOTH"
 
 [[dependencies.${mod_id}]]
     modId = "minecraft"
     mandatory = true
+    versionRange = "[1.20,1.20.2)"
