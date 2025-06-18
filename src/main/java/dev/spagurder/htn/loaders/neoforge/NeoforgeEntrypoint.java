@@ -1,5 +1,5 @@
 //? if neoforge {
-package dev.spagurder.htn.loaders.neoforge;
+/*package dev.spagurder.htn.loaders.neoforge;
 
 import dev.spagurder.htn.HardcoreTotemNerf;
 import dev.spagurder.htn.data.HTNState;
@@ -32,4 +32,4 @@ public class NeoforgeEntrypoint {
     }
 
 }
-//?}
+*///?}

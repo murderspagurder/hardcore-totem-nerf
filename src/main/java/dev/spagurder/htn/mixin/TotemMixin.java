@@ -1,10 +1,10 @@
 package dev.spagurder.htn.mixin;
 
 import dev.spagurder.htn.Config;
+import dev.spagurder.htn.HTNUtil;
 import dev.spagurder.htn.HardcoreTotemNerf;
 import dev.spagurder.htn.data.PlayerData;
 import dev.spagurder.htn.data.HTNState;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
@@ -34,6 +34,7 @@ public abstract class TotemMixin {
             long currentTime = Instant.now().getEpochSecond();
             if (Config.useCooldown) {
                 if (currentTime - playerData.totemLastUsed < Config.usageCooldown) {
+                    HTNUtil.sendMessage(player, "The totem cooldown has not ended.");
                     cir.setReturnValue(false);
                     return;
                 }
@@ -42,6 +43,7 @@ public abstract class TotemMixin {
             // Check usages
             if (Config.useUsageLimit) {
                 if (playerData.totemUsages >= Config.usageLimit) {
+                    HTNUtil.sendMessage(player, "The totem usage limit has been exceeded.");
                     cir.setReturnValue(false);
                 }
             }
@@ -57,6 +59,15 @@ public abstract class TotemMixin {
             playerData.totemLastUsed = Instant.now().getEpochSecond();
             playerData.totemUsages++;
 
+            if (Config.enableWarnings) {
+                if (Config.useCooldown) {
+                    HTNUtil.sendMessage(player, "A totem cooldown of " + Config.usageCooldown + " seconds has been applied.");
+                }
+                if (Config.useUsageLimit) {
+                    HTNUtil.sendMessage(player, "You have " + (Config.usageLimit - playerData.totemUsages) + " totem usages left.");
+                }
+            }
+
             // Max health reduction
             if (Config.usageReducesMaxHealth) {
                 AttributeInstance maxHealthAttribute = player.getAttribute(Attributes.MAX_HEALTH);
@@ -66,10 +77,8 @@ public abstract class TotemMixin {
                     if (maxHealth <= 0) {
                         MinecraftServer server = player.getServer();
                         if (server != null) {
-                            for (ServerPlayer p : server.getPlayerList().getPlayers()) {
-                                p.displayClientMessage(Component.literal(player.getName().getString() + " used too many totems."), false);
-                                p.displayClientMessage(Component.literal(player.getName().getString() + " is now incapable of living."), false);
-                            }
+                            HTNUtil.broadcastMessage(server, player.getName().getString() + " used too many totems.");
+                            HTNUtil.broadcastMessage(server, player.getName().getString() + " is now incapable of living.");
                             maxHealthAttribute.setBaseValue(1);
                             player.removeAllEffects();
                             server.execute(() -> {
