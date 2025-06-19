@@ -5,6 +5,7 @@ import dev.spagurder.htn.HTNCommands;
 import dev.spagurder.htn.HardcoreTotemNerf;
 import dev.spagurder.htn.client.KeyMappings;
 import dev.spagurder.htn.data.HTNState;
+import dev.spagurder.htn.event.PlayerDeathHandler;
 import eu.midnightdust.lib.config.MidnightConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.server.level.ServerPlayer;
@@ -13,6 +14,7 @@ import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -45,6 +47,13 @@ public class ForgeEntrypoint {
     public void onPlayerLeave(PlayerEvent.PlayerLoggedOutEvent event) {
         if (event.getEntity() instanceof ServerPlayer player) {
             HTNState.unloadAndSavePlayerData(player.getUUID());
+        }
+    }
+
+    @SubscribeEvent
+    public void onLivingDeath(LivingDeathEvent event) {
+        if (event.getEntity() instanceof ServerPlayer player) {
+            PlayerDeathHandler.onPlayerDeath(player);
         }
     }
 

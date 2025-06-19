@@ -1,13 +1,8 @@
-## 2.0.1 Bugfix, Missing refmap
-
-# Initial 2.0.0 Release
-- Port project from Architectury to Modstitch
-- Config menu improvements
-  - Add tooltips
-  - Made conditionally applicable settings collapsible
-- Added more verbose messaging indicating why a totem may have been blocked
-- Added configurable warnings informing player about applied cooldowns and remaining usages
-- Added configurable insights command to allow players to check limits and cooldowns on demand
-- Expanded support to 1.20-1.21.6
-  - Forge for 1.20/1.20.1 only, Neoforge for >=1.20.4
-  - Fabric supported on all versions
+- Implement regeneration tracking
+  - Option to only restore max health that has been reduced by totem consumption
+- Implement resetting cooldown and usage limit after player death
+  - This was previously not done at all, set the default config value to enable this
+- Implement resetting max health to a specified value after player death
+  - By default, this is 0, meaning that no action is taken
+- Implemented jsonlang plugin and reformatted/cleaned up en_us.json to JSON5 (en_us.json5)
+- Increase data save frequency (whenever a player state is updated) to prevent data loss

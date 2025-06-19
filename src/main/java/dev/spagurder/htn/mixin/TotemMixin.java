@@ -74,6 +74,7 @@ public abstract class TotemMixin {
                 if (maxHealthAttribute != null) {
                     float prospectiveMaxHealth = entity.getMaxHealth() - Config.maxHealthReductionAmount;
                     float maxHealth = Math.max(prospectiveMaxHealth, Config.minimumMaxHealth);
+                    playerData.maxHealthDeficit += entity.getMaxHealth() - maxHealth;
                     if (maxHealth <= 0) {
                         MinecraftServer server = player.getServer();
                         if (server != null) {
@@ -95,6 +96,7 @@ public abstract class TotemMixin {
                         } else {
                             HardcoreTotemNerf.LOGGER.error("Unable to get server instance");
                         }
+                        return;
                     } else {
                         maxHealthAttribute.setBaseValue(maxHealth);
                         player.setHealth(Math.min(player.getHealth(), maxHealth));
@@ -162,6 +164,7 @@ public abstract class TotemMixin {
             health = Math.min(health, Config.maxInstantHealthValue);
             health = Math.max(health, Config.minInstantHealthValue);
             player.setHealth(health);
+            HTNState.savePlayerData(player.getUUID());
         }
     }
 

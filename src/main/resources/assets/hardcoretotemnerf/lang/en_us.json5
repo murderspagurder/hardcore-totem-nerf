@@ -1,0 +1,240 @@
+{
+  hardcoretotemnerf: {
+    midnightconfig: {
+      title: "Hardcore Totem Nerf Config",
+      category: {
+        limits: "Limits",
+        maxHealth: "Max Health",
+        buffs: "Buffs",
+        debuffs: "Debuffs",
+        instantHealth: "Instant Health"
+      },
+
+      useCooldown: {
+        ".": "Use Cooldown",
+        label: {
+          tooltip: "Enforce a cooldown on totem usage"
+        },
+      },
+      usageCooldown: {
+        ".": "Usage Cooldown (Seconds)",
+        label: {
+          tooltip: "The number of seconds (per player) that must pass between totem usages"
+        }
+      },
+      useUsageLimit: {
+        ".": "Use Usage Limit",
+        label: {
+          tooltip: "Limit the total number of times a player may use a totem"
+        }
+      },
+      usageLimit: {
+        ".": "Usage Limit",
+        label: {
+          tooltip: "The total number of times a player may use a totem"
+        }
+      },
+      resetLimitsOnDeath: {
+        ".": "Reset Limits on Death",
+        label: {
+          tooltip: "When a player dies, reset their cooldown and usage limits"
+        }
+      },
+      enableWarnings: {
+        ".": "Enable Warnings",
+        label: {
+          tooltip: "Inform players about remaining limits (and cooldown) when they pop a totem"
+        }
+      },
+      allowPlayerInsights: {
+        ".": "Allow Player Insights",
+        label: {
+          tooltip: "Allow players to query limit information via command"
+        }
+      },
+
+      usageReducesMaxHealth: {
+        ".": "Usage Reduces Max Health",
+        label: {
+          tooltip: "Reduce a player's max health whenever they use a totem"
+        }
+      },
+      maxHealthReductionAmount: {
+        ".": "Max Health Reduction Amount",
+        label: {
+          tooltip: "The amount to reduce the player's max health when they use a totem"
+        }
+      },
+      minimumMaxHealth: {
+        ".": "Minimum Max Health",
+        label: {
+          tooltip: "The absolute minimum value this mod will reduce a player's max health to. If set to 0, using too many totems can kill the player."
+        }
+      },
+      notchAppleRestoresMaxHealth: {
+        ".": "Notch Apple Restores Max Health",
+        label: {
+          tooltip: "Increase a player's max health when they consume an enchanted golden apple"
+        }
+      },
+      maxHealthRestorationAmount: {
+        ".": "Max Health Restoration Amount",
+        label: {
+          tooltip: "The amount to increase the player's max health when they consume a notch apple"
+        }
+      },
+      maximumMaxHealth: {
+        ".": "Maximum Max Health",
+        label: {
+          tooltip: "The absolute maximum value this mod will increase a player's max health to"
+        }
+      },
+      restorationTracking: {
+        ".": "Restoration Tracking",
+        label: {
+          tooltip: "Do not restore more health than has been reduced by totem consumption"
+        }
+      },
+      trackingOverridesMaxHealthCap: {
+        ".": "Tracking Overrides Maximum Max Health",
+        label: {
+          tooltip: "Override Maximum Max Health setting when tracking is enabled"
+        }
+      },
+      resetTrackingOnDeath: {
+        ".": "Reset Tracking Data on Death",
+        label: {
+          tooltip: "Reset the max health deficit to 0 after player death. This is recommended is resetMaxHealthOnDeath is true or if something else resets the max health."
+        }
+      },
+      resetMaxHealthOnDeath: {
+        ".": "Reset Max Health on Death",
+        label: {
+          tooltip: "Value to set the player's max health to after they die. Setting to 0 disables this feature. Some vanilla 1.20.x behavior may override this setting."
+        }
+      },
+
+      disableAbsorption: {
+        ".": "Disable Absorption",
+        label: {
+          tooltip: "Disable the totem's absorption effect"
+        }
+      },
+      disableFireResistance: {
+        ".": "Disable Fire Resistance",
+        label: {
+          tooltip: "Disable the totem's fire resistance effect"
+        }
+      },
+      disableRegeneration: {
+        ".": "Disable Regeneration",
+        label: {
+          tooltip: "Disable the totem's regeneration effect"
+        }
+      },
+
+      enableBlindness: {
+        ".":  "Enable Blindness",
+        label: {
+          tooltip: "Apply the blindness effect when a totem is used"
+        }
+      },
+      blindnessDuration: {
+        ".": "Blindness Duration (Ticks)",
+        label: {
+          tooltip: "The number of ticks to apply the effect. (20 ticks = 1 second)"
+        }
+      },
+      blindnessLevel: {
+        ".": "Blindness Level",
+        label: {
+          tooltip: "The potency of the effect. In vanilla minecraft, this is limited to 1, but higher values are allowed in case another mod supports it."
+        }
+      },
+      enableSlowness: {
+        ".": "Enable Slowness",
+        label: {
+          tooltip: "Apply the slowness effect when a totem is used"
+        }
+      },
+      slownessDuration: {
+        ".": "Slowness Duration (Ticks)",
+        label: {
+          tooltip: "The number of ticks to apply the effect. (20 ticks = 1 second)"
+        }
+      },
+      slownessLevel: {
+        ".": "Slowness Level",
+        label: {
+          tooltip: "The potency of the effect. Anything higher than 6 renders the player immobile without ender pearls."
+        }
+      },
+      enableWeakness: {
+        ".": "Enable Weakness",
+        label: {
+          tooltip: "Apply the weakness effect when a totem is used"
+        }
+      },
+      weaknessDuration: {
+        ".": "Weakness Duration (Ticks)",
+        label: {
+          tooltip: "The number of ticks to apply the effect. (20 ticks = 1 second)"
+        }
+      },
+      weaknessLevel: {
+        ".": "Weakness Level",
+        label: {
+          tooltip: "The potency of the effect. High enough levels will render a player incapable of dealing damage."
+        }
+      },
+      enableMiningFatigue: {
+        ".": "Enable Mining Fatigue",
+        label: {
+          tooltip: "Apply the mining fatigue effect when a totem is used"
+        }
+      },
+      miningFatigueDuration: {
+        ".": "Mining Fatigue Duration (Ticks)",
+        label: {
+          tooltip: "The number of ticks to apply the effect. (20 ticks = 1 second)"
+        }
+      },
+      miningFatigueLevel: {
+        ".": "Mining Fatigue Level",
+        label: {
+          tooltip: "The potency of the affect. In vanilla, there is no additional impact after level 4, but higher values are allowed in case another mod supports it."
+        }
+      },
+
+      minInstantHealthValue: {
+        ".": "Minimum Instant Health Value",
+        label: {
+          tooltip: "The minimum value this mod will instantly set the player's health to after using a totem."
+        }
+      },
+      maxInstantHealthValue: {
+        ".": "Maximum Instant Health Value",
+        label: {
+          tooltip: "The maximum value this mod will instantly set the player's health to after using a totem."
+        }
+      },
+      instantHealthDivider: {
+        ".": "Instant Health Divider",
+        label: {
+          tooltip: "A divider to be applied to the instant healing value applied by using a totem. Setting this to one simulates vanilla behavior."
+        }
+      }
+    }
+  },
+
+  key: {
+    hardcoretotemnerf: {
+      openConfig: "Open Config"
+    }
+  },
+  category: {
+    hardcoretotemnerf: {
+      keybinds: "Hardcore Totem Nerf"
+    }
+  }
+}
