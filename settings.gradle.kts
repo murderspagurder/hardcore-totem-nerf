@@ -39,10 +39,18 @@ stonecutter {
 
         // Configure your targets here!
         mc("1.21.6", loaders = listOf("fabric", "neoforge"))
+        mc("1.21.5", loaders = listOf("fabric", "neoforge"))
         mc("1.21.4", loaders = listOf("fabric", "neoforge"))
+        mc("1.21.3", loaders = listOf("fabric", "neoforge"))
         mc("1.21.2", loaders = listOf("fabric", "neoforge"))
+        mc("1.21.1", loaders = listOf("fabric", "neoforge"))
         mc("1.21", loaders = listOf("fabric", "neoforge"))
-        mc("1.20.1", loaders = listOf("forge"))
+        mc("1.20.6", loaders = listOf("fabric"))
+        mc("1.20.5", loaders = listOf("fabric"))
+        mc("1.20.4", loaders = listOf("fabric"))
+        mc("1.20.3", loaders = listOf("fabric"))
+        mc("1.20.2", loaders = listOf("fabric"))
+        mc("1.20.1", loaders = listOf("fabric", "forge"))
         mc("1.20", loaders = listOf("fabric"))
 
         // This is the default target.

@@ -127,7 +127,7 @@ public abstract class TotemMixin {
             if (Config.enableSlowness) {
                 player.addEffect(
                         new MobEffectInstance(
-                                //? if >=1.21.6 {
+                                //? if >=1.21.5 {
                                 MobEffects.SLOWNESS,
                                 //?} else {
                                 /*MobEffects.MOVEMENT_SLOWDOWN,
@@ -147,7 +147,7 @@ public abstract class TotemMixin {
             if (Config.enableMiningFatigue) {
                 player.addEffect(
                         new MobEffectInstance(
-                                //? if >=1.21.6 {
+                                //? if >=1.21.5 {
                                 MobEffects.MINING_FATIGUE,
                                 //?} else {
                                 /*MobEffects.DIG_SLOWDOWN,
