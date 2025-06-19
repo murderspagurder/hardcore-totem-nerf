@@ -42,7 +42,7 @@ public class NeoforgeEntrypoint {
     }
 
     @SubscribeEvent
-    public void onLivingDeath(LivingDeathEvent event) {
+    public static void onLivingDeath(LivingDeathEvent event) {
         if (event.getEntity() instanceof ServerPlayer player) {
             PlayerDeathHandler.onPlayerDeath(player);
         }
