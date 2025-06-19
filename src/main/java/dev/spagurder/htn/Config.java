@@ -15,14 +15,14 @@ public class Config extends MidnightConfig {
 
     @Entry(category = LIMITS) public static boolean useCooldown = true;
     //? if >=1.21.4 {
-    @Condition(requiredOption = "useCooldown", requiredValue = "true")
-    //?}
+    /*@Condition(requiredOption = "useCooldown", requiredValue = "true")
+    *///?}
     @Entry(category = LIMITS) public static int usageCooldown = 60 * 15; // 15 minutes
 
     @Entry(category = LIMITS) public static boolean useUsageLimit = false;
     //? if >=1.21.4 {
-    @Condition(requiredOption = "useUsageLimit", requiredValue = "true")
-    //?}
+    /*@Condition(requiredOption = "useUsageLimit", requiredValue = "true")
+    *///?}
     @Entry(category = LIMITS) public static int usageLimit = 5;
 
     @Entry(category = LIMITS) public static boolean enableWarnings = true;
@@ -31,23 +31,23 @@ public class Config extends MidnightConfig {
     // Allows totem usage to reduce max health.
     @Entry(category = MAX_HEALTH) public static boolean usageReducesMaxHealth = true;
     //? if >=1.21.4 {
-    @Condition(requiredOption = "usageReducesMaxHealth", requiredValue = "true")
-    //?}
+    /*@Condition(requiredOption = "usageReducesMaxHealth", requiredValue = "true")
+    *///?}
     @Entry(category = MAX_HEALTH) public static float maxHealthReductionAmount = 2f; // 1 heart
     //? if >=1.21.4 {
-    @Condition(requiredOption = "usageReducesMaxHealth", requiredValue = "true")
-    //?}
+    /*@Condition(requiredOption = "usageReducesMaxHealth", requiredValue = "true")
+    *///?}
     @Entry(category = MAX_HEALTH) public static float minimumMaxHealth = 0f; // half heart
 
     // Allows enchanted golden apples to restore max health.
     @Entry(category = MAX_HEALTH) public static boolean notchAppleRestoresMaxHealth = true;
     //? if >=1.21.4 {
-    @Condition(requiredOption = "notchAppleRestoresMaxHealth", requiredValue = "true")
-    //?}
+    /*@Condition(requiredOption = "notchAppleRestoresMaxHealth", requiredValue = "true")
+    *///?}
     @Entry(category = MAX_HEALTH) public static float maxHealthRestorationAmount = 2f;
     //? if >=1.21.4 {
-    @Condition(requiredOption = "notchAppleRestoresMaxHealth", requiredValue = "true")
-    //?}
+    /*@Condition(requiredOption = "notchAppleRestoresMaxHealth", requiredValue = "true")
+    *///?}
     @Entry(category = MAX_HEALTH) public static float maximumMaxHealth = 20f; // 10 hearts
 
     // Disables buffs
@@ -58,42 +58,42 @@ public class Config extends MidnightConfig {
     // Debuffs
     @Entry(category = DEBUFFS) public static boolean enableBlindness = true;
     //? if >=1.21.4 {
-    @Condition(requiredOption = "enableBlindness", requiredValue = "true")
-    //?}
+    /*@Condition(requiredOption = "enableBlindness", requiredValue = "true")
+    *///?}
     @Entry(category = DEBUFFS) public static int blindnessDuration = 200; // ten seconds
     //? if >=1.21.4 {
-    @Condition(requiredOption = "enableBlindness", requiredValue = "true")
-    //?}
+    /*@Condition(requiredOption = "enableBlindness", requiredValue = "true")
+    *///?}
     @Entry(category = DEBUFFS) public static int blindnessLevel = 1;
 
     @Entry(category = DEBUFFS) public static boolean enableSlowness = true;
     //? if >=1.21.4 {
-    @Condition(requiredOption = "enableSlowness", requiredValue = "true")
-    //?}
+    /*@Condition(requiredOption = "enableSlowness", requiredValue = "true")
+    *///?}
     @Entry(category = DEBUFFS) public static int slownessDuration = 600; // 30 seconds
     //? if >=1.21.4 {
-    @Condition(requiredOption = "enableSlowness", requiredValue = "true")
-    //?}
+    /*@Condition(requiredOption = "enableSlowness", requiredValue = "true")
+    *///?}
     @Entry(category = DEBUFFS) public static int slownessLevel = 1;
 
     @Entry(category = DEBUFFS) public static boolean enableWeakness = true;
     //? if >=1.21.4 {
-    @Condition(requiredOption = "enableWeakness", requiredValue = "true")
-    //?}
+    /*@Condition(requiredOption = "enableWeakness", requiredValue = "true")
+    *///?}
     @Entry(category = DEBUFFS) public static int weaknessDuration = 600;
     //? if >=1.21.4 {
-    @Condition(requiredOption = "enableWeakness", requiredValue = "true")
-    //?}
+    /*@Condition(requiredOption = "enableWeakness", requiredValue = "true")
+    *///?}
     @Entry(category = DEBUFFS) public static int weaknessLevel = 1;
 
     @Entry(category = DEBUFFS) public static boolean enableMiningFatigue = true;
     //? if >=1.21.4 {
-    @Condition(requiredOption = "enableMiningFatigue", requiredValue = "true")
-    //?}
+    /*@Condition(requiredOption = "enableMiningFatigue", requiredValue = "true")
+    *///?}
     @Entry(category = DEBUFFS) public static int miningFatigueDuration = 600;
     //? if >=1.21.4 {
-    @Condition(requiredOption = "enableMiningFatigue", requiredValue = "true")
-    //?}
+    /*@Condition(requiredOption = "enableMiningFatigue", requiredValue = "true")
+    *///?}
     @Entry(category = DEBUFFS) public static int miningFatigueLevel = 1;
 
     // Instant healing config

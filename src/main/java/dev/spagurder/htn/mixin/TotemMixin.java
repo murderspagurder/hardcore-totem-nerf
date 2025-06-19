@@ -84,12 +84,12 @@ public abstract class TotemMixin {
                             server.execute(() -> {
                                 if (!player.isDeadOrDying()) {
                                     //? if >=1.21.6 {
-                                    player.hurtServer(player.level(), player.damageSources().generic(), Float.MAX_VALUE);
-                                    //?} else if >=1.21.2 {
+                                    /*player.hurtServer(player.level(), player.damageSources().generic(), Float.MAX_VALUE);
+                                    *///?} else if >=1.21.2 {
                                     /*player.hurtServer(player.serverLevel(), player.damageSources().generic(), Float.MAX_VALUE);
                                     *///?} else {
-                                    /*player.hurt(player.damageSources().generic(), Float.MAX_VALUE);
-                                    *///?}
+                                    player.hurt(player.damageSources().generic(), Float.MAX_VALUE);
+                                    //?}
                                 }
                             });
                         } else {
@@ -128,10 +128,10 @@ public abstract class TotemMixin {
                 player.addEffect(
                         new MobEffectInstance(
                                 //? if >=1.21.5 {
-                                MobEffects.SLOWNESS,
-                                //?} else {
-                                /*MobEffects.MOVEMENT_SLOWDOWN,
-                                *///?}
+                                /*MobEffects.SLOWNESS,
+                                *///?} else {
+                                MobEffects.MOVEMENT_SLOWDOWN,
+                                //?}
                                 Config.slownessDuration,
                                 Config.slownessLevel)
                 );
@@ -148,10 +148,10 @@ public abstract class TotemMixin {
                 player.addEffect(
                         new MobEffectInstance(
                                 //? if >=1.21.5 {
-                                MobEffects.MINING_FATIGUE,
-                                //?} else {
-                                /*MobEffects.DIG_SLOWDOWN,
-                                *///?}
+                                /*MobEffects.MINING_FATIGUE,
+                                *///?} else {
+                                MobEffects.DIG_SLOWDOWN,
+                                //?}
                                 Config.miningFatigueDuration,
                                 Config.miningFatigueLevel)
                 );

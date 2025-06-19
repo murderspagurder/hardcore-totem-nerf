@@ -7,5 +7,5 @@
 - Added configurable warnings informing player about applied cooldowns and remaining usages
 - Added configurable insights command to allow players to check limits and cooldowns on demand
 - Expanded support to 1.20-1.21.6
-  - Forge for 1.20/1.20.1 only, Neoforge >= 1.20.6
+  - Forge for 1.20/1.20.1 only, Neoforge for >=1.20.4
   - Fabric supported on all versions

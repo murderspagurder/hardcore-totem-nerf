@@ -1,5 +1,5 @@
 //? if fabric {
-package dev.spagurder.htn.loaders.fabric;
+/*package dev.spagurder.htn.loaders.fabric;
 
 import dev.spagurder.htn.HTNCommands;
 import dev.spagurder.htn.HardcoreTotemNerf;
@@ -25,4 +25,4 @@ public class FabricEntrypoint implements ModInitializer {
     }
 
 }
-//?}
+*///?}

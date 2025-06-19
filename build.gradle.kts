@@ -1,5 +1,3 @@
-import kotlin.collections.emptyList
-
 plugins {
     id("dev.isxander.modstitch.base") version "0.5.12"
     id("dev.kikugie.j52j") version "2.0"
@@ -32,11 +30,15 @@ modstitch {
 
     // Alternatively use stonecutter.eval if you have a lot of versions to target.
     // https://stonecutter.kikugie.dev/stonecutter/guide/setup#checking-versions
+    var jvm1206 = 17
+    if (loader == "neoforge") {
+        jvm1206 = 21
+    }
     javaTarget = when (minecraft) {
         "1.20.1" -> 17
         "1.20.2" -> 17
         "1.20.4" -> 17
-        "1.20.6" -> 17
+        "1.20.6" -> jvm1206
         "1.21.1" -> 21
         "1.21.3" -> 21
         "1.21.4" -> 21
