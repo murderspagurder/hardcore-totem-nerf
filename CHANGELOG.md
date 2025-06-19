@@ -1,3 +1,5 @@
+## 2.0.1 Bugfix, Missing refmap
+
 # Initial 2.0.0 Release
 - Port project from Architectury to Modstitch
 - Config menu improvements
