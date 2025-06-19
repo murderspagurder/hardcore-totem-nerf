@@ -15,7 +15,7 @@ stonecutter registerChiseled tasks.register("chiseledBuildAndCollect", stonecutt
 
 stonecutter registerChiseled tasks.register("chiseledPublish", stonecutter.chiseled) {
     group = "project"
-    ofTask("publish")
+    ofTask("publishMods")
 }
 
 allprojects {

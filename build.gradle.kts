@@ -1,3 +1,5 @@
+import kotlin.collections.emptyList
+
 plugins {
     id("dev.isxander.modstitch.base") version "0.5.12"
     id("dev.kikugie.j52j") version "2.0"
@@ -31,16 +33,11 @@ modstitch {
     // Alternatively use stonecutter.eval if you have a lot of versions to target.
     // https://stonecutter.kikugie.dev/stonecutter/guide/setup#checking-versions
     javaTarget = when (minecraft) {
-        "1.20" -> 17
         "1.20.1" -> 17
         "1.20.2" -> 17
-        "1.20.3" -> 17
         "1.20.4" -> 17
-        "1.20.5" -> 17
         "1.20.6" -> 17
-        "1.21" -> 21
         "1.21.1" -> 21
-        "1.21.2" -> 21
         "1.21.3" -> 21
         "1.21.4" -> 21
         "1.21.5" -> 21
@@ -74,16 +71,11 @@ modstitch {
             // modstitch doesn't initially support. Some examples below.
             put("mod_issue_tracker", "https://github.com/murderspagurder/hardcore-totem-nerf/issues")
             put("pack_format", when (property("deps.minecraft")) {
-                "1.20" -> 15
                 "1.20.1" -> 15
                 "1.20.2" -> 18
-                "1.20.3" -> 22
                 "1.20.4" -> 22
-                "1.20.5" -> 32
                 "1.20.6" -> 32
-                "1.21" -> 34
                 "1.21.1" -> 34
-                "1.21.2" -> 42
                 "1.21.3" -> 42
                 "1.21.4" -> 46
                 "1.21.5" -> 55
@@ -175,17 +167,20 @@ tasks.register<Copy>("buildAndCollect") {
     dependsOn("build")
 }
 
-publishMods {
-    version = "${baseVersion}+${minecraft}"
-    displayName = "Hardcore Totem Nerf $baseVersion for $loader $minecraft"
-    file = modstitch.finalJarTask.flatMap { it.archiveFile }
-    type = STABLE
-    modLoaders.add(loader)
-    changelog = rootProject.file("CHANGELOG.md").readText()
+val onlyVersion = rootProject.findProperty("onlyVersion") as String?
+if (onlyVersion == null || onlyVersion == project.name) {
+    publishMods {
+        version = "${baseVersion}+${minecraft}"
+        displayName = "Hardcore Totem Nerf $baseVersion for $loader $minecraft"
+        file = modstitch.finalJarTask.flatMap { it.archiveFile }
+        type = STABLE
+        modLoaders.add(loader)
+        changelog = rootProject.file("CHANGELOG.md").readText()
 
-    modrinth {
-        accessToken = providers.environmentVariable("MODRINTH_API_KEY")
-        projectId = "FcCGemui"
-        minecraftVersions.add(minecraft)
+        modrinth {
+            accessToken = providers.environmentVariable("MODRINTH_API_KEY")
+            projectId = "FcCGemui"
+            minecraftVersions.add(minecraft)
+        }
     }
 }
