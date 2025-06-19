@@ -1,6 +1,7 @@
 plugins {
     id("dev.isxander.modstitch.base") version "0.5.12"
     id("dev.kikugie.j52j") version "2.0"
+    id("me.modmuss50.mod-publish-plugin") version "0.8.4"
 }
 
 fun prop(name: String, consumer: (prop: String) -> Unit) {
@@ -172,4 +173,19 @@ tasks.register<Copy>("buildAndCollect") {
     from(modstitch.finalJarTask.map { it.archiveFile })
     into(rootProject.layout.buildDirectory.file("libs/${project.property("mod.version")}"))
     dependsOn("build")
+}
+
+publishMods {
+    version = "${baseVersion}+${minecraft}"
+    displayName = "Hardcore Totem Nerf $baseVersion for $loader $minecraft"
+    file = modstitch.finalJarTask.flatMap { it.archiveFile }
+    type = STABLE
+    modLoaders.add(loader)
+    changelog = rootProject.file("CHANGELOG.md").readText()
+
+    modrinth {
+        accessToken = providers.environmentVariable("MODRINTH_API_KEY")
+        projectId = "FcCGemui"
+        minecraftVersions.add(minecraft)
+    }
 }
