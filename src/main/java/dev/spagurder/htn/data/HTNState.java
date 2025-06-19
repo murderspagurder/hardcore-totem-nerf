@@ -19,17 +19,22 @@ public class HTNState {
     private static final Gson GSON = new Gson();
 
     public static void unloadAndSavePlayerData(UUID uuid) {
-        PlayerData playerData = playerState.remove(uuid);
+        savePlayerData(playerState.remove(uuid), uuid);
+    }
+
+    public static void savePlayerData(UUID uuid) {
+        savePlayerData(playerState.get(uuid), uuid);
+    }
+
+    public static void savePlayerData(PlayerData playerData, UUID uuid) {
         if (playerData == null) {
-            HardcoreTotemNerf.LOGGER.error("Player missing during unload: {}", uuid);
+            HardcoreTotemNerf.LOGGER.error("Player missing during save: {}", uuid);
             return;
         }
-
         Path dataFile = getPlayerDataPath(uuid);
         if (dataFile == null) {
             return;
         }
-
         try (FileWriter writer = new FileWriter(dataFile.toFile())) {
             GSON.toJson(playerData, writer);
         } catch (IOException e) {

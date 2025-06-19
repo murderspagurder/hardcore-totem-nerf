@@ -25,6 +25,8 @@ public class Config extends MidnightConfig {
     //?}
     @Entry(category = LIMITS) public static int usageLimit = 5;
 
+    @Entry(category = LIMITS) public static boolean resetLimitsOnDeath = true;
+
     @Entry(category = LIMITS) public static boolean enableWarnings = true;
     @Entry(category = LIMITS) public static boolean allowPlayerInsights = true;
 
@@ -49,6 +51,19 @@ public class Config extends MidnightConfig {
     @Condition(requiredOption = "notchAppleRestoresMaxHealth", requiredValue = "true")
     //?}
     @Entry(category = MAX_HEALTH) public static float maximumMaxHealth = 20f; // 10 hearts
+
+    // Limit enchanted golden apples to restoring max health *only* reduced by totem consumption
+    //? if >=1.21.4 {
+    @Condition(requiredOption = "notchAppleRestoresMaxHealth", requiredValue = "true")
+    //?}
+    @Entry(category = MAX_HEALTH) public static boolean restorationTracking = false;
+    //? if >=1.21.4 {
+    @Condition(requiredOption = "notchAppleRestoresMaxHealth", requiredValue = "true")
+    //?}
+    @Entry(category = MAX_HEALTH) public static boolean trackingOverridesMaxHealthCap = false;
+    @Entry(category = MAX_HEALTH) public static boolean resetTrackingOnDeath = false;
+
+    @Entry(category = MAX_HEALTH) public static float resetMaxHealthOnDeath = 0f;
 
     // Disables buffs
     @Entry(category = BUFFS) public static boolean disableAbsorption = true;

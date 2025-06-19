@@ -1,6 +1,7 @@
 plugins {
     id("dev.isxander.modstitch.base") version "0.5.12"
     id("dev.kikugie.j52j") version "2.0"
+    id("dev.kikugie.postprocess.jsonlang") version "2.1-beta.4"
     id("me.modmuss50.mod-publish-plugin") version "0.8.4"
 }
 
@@ -23,6 +24,11 @@ j52j {
     params {
         prettyPrinting = true
     }
+}
+
+jsonlang {
+    languageDirectories = listOf("assets/hardcoretotemnerf/lang")
+    prettyPrint = true
 }
 
 modstitch {

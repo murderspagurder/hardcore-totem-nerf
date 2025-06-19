@@ -2,6 +2,8 @@ package dev.spagurder.htn.mixin;
 
 import dev.spagurder.htn.Config;
 import dev.spagurder.htn.HardcoreTotemNerf;
+import dev.spagurder.htn.data.HTNState;
+import dev.spagurder.htn.data.PlayerData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -26,10 +28,22 @@ public class NotchAppleMixin {
                         HardcoreTotemNerf.LOGGER.error("MAX_HEALTH attribute missing from player {}", player.getUUID());
                         return;
                     }
-                    float maxHealth = player.getMaxHealth() + Config.maxHealthRestorationAmount;
-                    maxHealth = Math.min(maxHealth, Config.maximumMaxHealth);
+                    PlayerData playerData = HTNState.playerState.get(player.getUUID());
+                    float restorationAmount = Config.restorationTracking
+                            ? Math.min(playerData.maxHealthDeficit, Config.maxHealthRestorationAmount)
+                            : Config.maxHealthRestorationAmount;
+                    float maxHealth = player.getMaxHealth() + restorationAmount;
+                    if (!(Config.restorationTracking && Config.trackingOverridesMaxHealthCap)) {
+                        maxHealth = Math.min(maxHealth, Config.maximumMaxHealth);
+                    }
                     if (maxHealth > player.getMaxHealth()) {
+                        if (maxHealth == Config.maximumMaxHealth) {
+                            playerData.maxHealthDeficit = 0f;
+                        } else {
+                            playerData.maxHealthDeficit += player.getMaxHealth() - maxHealth;
+                        }
                         maxHealthAttribute.setBaseValue(maxHealth);
+                        HTNState.savePlayerData(player.getUUID());
                     }
                 }
             }
