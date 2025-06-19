@@ -170,6 +170,12 @@ tasks.register<Copy>("buildAndCollect") {
 }
 
 val onlyVersion = rootProject.findProperty("onlyVersion") as String?
+val additionalVersionsStr = findProperty("publish.additionalVersions") as String?
+val additionalVersions: List<String> = additionalVersionsStr
+    ?.split(",")
+    ?.map { it.trim() }
+    ?.filter { it.isNotEmpty() }
+    ?: emptyList()
 if (onlyVersion == null || onlyVersion == project.name) {
     publishMods {
         version = "${baseVersion}+${minecraft}"
@@ -183,6 +189,7 @@ if (onlyVersion == null || onlyVersion == project.name) {
             accessToken = providers.environmentVariable("MODRINTH_API_KEY")
             projectId = "FcCGemui"
             minecraftVersions.add(minecraft)
+            minecraftVersions.addAll(additionalVersions)
         }
     }
 }
