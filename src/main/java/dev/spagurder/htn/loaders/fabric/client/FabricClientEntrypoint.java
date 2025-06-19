@@ -1,5 +1,5 @@
 //? if fabric {
-/*package dev.spagurder.htn.loaders.fabric.client;
+package dev.spagurder.htn.loaders.fabric.client;
 
 import dev.spagurder.htn.HardcoreTotemNerf;
 import dev.spagurder.htn.client.KeyMappings;
@@ -23,4 +23,4 @@ public class FabricClientEntrypoint  implements ClientModInitializer {
     }
 
 }
-*///?}
+//?}

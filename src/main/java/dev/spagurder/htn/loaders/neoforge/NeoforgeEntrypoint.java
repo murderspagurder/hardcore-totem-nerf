@@ -1,5 +1,5 @@
 //? if neoforge {
-package dev.spagurder.htn.loaders.neoforge;
+/*package dev.spagurder.htn.loaders.neoforge;
 
 import dev.spagurder.htn.HTNCommands;
 import dev.spagurder.htn.HardcoreTotemNerf;
@@ -7,18 +7,18 @@ import dev.spagurder.htn.data.HTNState;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.SubscribeEvent;
 //? if >=1.20.5 {
-/*import net.neoforged.fml.common.EventBusSubscriber;
-*///?}
+import net.neoforged.fml.common.EventBusSubscriber;
+//?}
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 
 //? if >=1.20.5 {
-/*@Mod(HardcoreTotemNerf.MOD_ID)
+@Mod(HardcoreTotemNerf.MOD_ID)
 @EventBusSubscriber
-*///?} else {
-@Mod.EventBusSubscriber(modid = HardcoreTotemNerf.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
-//?}
+//?} else {
+/^@Mod.EventBusSubscriber(modid = HardcoreTotemNerf.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+^///?}
 public class NeoforgeEntrypoint {
 
     public NeoforgeEntrypoint() {
@@ -45,4 +45,4 @@ public class NeoforgeEntrypoint {
     }
 
 }
-//?}
+*///?}
