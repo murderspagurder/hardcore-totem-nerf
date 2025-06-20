@@ -15,6 +15,7 @@
     "NotchAppleMixin",
     "TotemMixin",
     "MidnightConfigUpdateMixin",
-    "compat.InventoryTotemCompatMixin"
+    "compat.InventoryTotemCompatMixin",
+    "compat.CharmOfUndyingCompatMixin"
   ]
 }
