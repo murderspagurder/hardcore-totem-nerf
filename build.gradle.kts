@@ -184,7 +184,7 @@ val additionalVersions: List<String> = additionalVersionsStr
     ?: emptyList()
 if (onlyVersion == null || onlyVersion == project.name) {
     publishMods {
-        version = "${baseVersion}+${minecraft}"
+        version = "${baseVersion}+${minecraft}-${loader}"
         displayName = "Hardcore Totem Nerf $baseVersion for $loader $minecraft"
         file = modstitch.finalJarTask.flatMap { it.archiveFile }
         type = STABLE
