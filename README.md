@@ -25,7 +25,7 @@ configurable, and includes:
 - Enable or disable player insights
   - If enabled, players can view limit/cooldown settings, remaining usages, and applied cooldowns using the `/htn insights` command.
 
-All of these options can be fine-tuned in `config/hardcoretotemnerf.json`. Additionally, thanks to MidnightLib, this can be configured in realtime using the config screen (bound to '-' by default), Mod Menu, or the `/midnightconfig hardcoretotem` command.
+All of these options (and more) can be fine-tuned in `config/hardcoretotemnerf.json`. Additionally, thanks to MidnightLib, this can be configured in realtime using the config screen (bound to '-' by default), Mod Menu, or the `/midnightconfig hardcoretotem` command.
 
 Compatible with:
 - Inventory Totem
