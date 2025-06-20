@@ -201,6 +201,9 @@ if (onlyVersion == null || onlyVersion == project.name) {
                     slug = "fabric-api"
                 }
             }
+            embeds {
+                slug = "midnightlib"
+            }
         }
     }
 }
