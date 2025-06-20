@@ -196,6 +196,11 @@ if (onlyVersion == null || onlyVersion == project.name) {
             projectId = "FcCGemui"
             minecraftVersions.add(minecraft)
             minecraftVersions.addAll(additionalVersions)
+            if (loader == "fabric") {
+                requires {
+                    slug = "fabric-api"
+                }
+            }
         }
     }
 }
