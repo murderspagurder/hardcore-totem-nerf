@@ -1,3 +1,4 @@
 - Compat implemented for:
   - Inventory Totem
   - Charm of Undying
+  - Netherite Extras

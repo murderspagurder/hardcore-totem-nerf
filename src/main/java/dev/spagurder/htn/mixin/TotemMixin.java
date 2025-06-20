@@ -3,6 +3,7 @@ package dev.spagurder.htn.mixin;
 import dev.spagurder.htn.Config;
 import dev.spagurder.htn.HTNUtil;
 import dev.spagurder.htn.PostTotemHandler;
+import dev.spagurder.htn.PreTotemHandler;
 import dev.spagurder.htn.data.PlayerData;
 import dev.spagurder.htn.data.HTNState;
 import net.minecraft.server.level.ServerPlayer;
@@ -22,25 +23,8 @@ public abstract class TotemMixin {
     private void beforeCheckTotemDeathProtection(DamageSource damageSource, CallbackInfoReturnable<Boolean> cir) {
         LivingEntity entity = (LivingEntity) (Object) this;
         if (entity instanceof ServerPlayer player) {
-            // Load player data
-            PlayerData playerData = HTNState.playerState.get(player.getUUID());
-
-            // Check cooldown
-            long currentTime = Instant.now().getEpochSecond();
-            if (Config.useCooldown) {
-                if (currentTime - playerData.totemLastUsed < Config.usageCooldown) {
-                    HTNUtil.sendMessage(player, "The totem cooldown has not ended.");
-                    cir.setReturnValue(false);
-                    return;
-                }
-            }
-
-            // Check usages
-            if (Config.useUsageLimit) {
-                if (playerData.totemUsages >= Config.usageLimit) {
-                    HTNUtil.sendMessage(player, "The totem usage limit has been exceeded.");
-                    cir.setReturnValue(false);
-                }
+            if (!PreTotemHandler.doCheck(player)) {
+                cir.setReturnValue(false);
             }
         }
     }
