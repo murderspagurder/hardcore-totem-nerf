@@ -27,6 +27,11 @@ configurable, and includes:
 
 All of these options can be fine-tuned in `config/hardcoretotemnerf.json`. Additionally, thanks to MidnightLib, this can be configured in realtime using the config screen (bound to '-' by default), Mod Menu, or the `/midnightconfig hardcoretotem` command.
 
+Compatible with:
+- Inventory Totem
+- Charm of Undying
+- Netherite Extras
+
 While this was built with the hardcore game mode in mind, this would certainly
 fit well in non-hardcore worlds and servers as well with some configuration
 tweaks. When using this mod outside of hardcore difficulty in some 1.20.x versions, 
