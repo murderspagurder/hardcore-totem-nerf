@@ -16,6 +16,7 @@
     "TotemMixin",
     "MidnightConfigUpdateMixin",
     "compat.InventoryTotemCompatMixin",
-    "compat.CharmOfUndyingCompatMixin"
+    "compat.CharmOfUndyingCompatMixin",
+    "compat.NetheriteExtrasCompatMixin"
   ]
 }

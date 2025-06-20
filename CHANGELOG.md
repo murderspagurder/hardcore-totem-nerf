@@ -1,8 +1,4 @@
-- Implement regeneration tracking
-  - Option to only restore max health that has been reduced by totem consumption
-- Implement resetting cooldown and usage limit after player death
-  - This was previously not done at all, set the default config value to enable this
-- Implement resetting max health to a specified value after player death
-  - By default, this is 0, meaning that no action is taken
-- Implemented jsonlang plugin and reformatted/cleaned up en_us.json to JSON5 (en_us.json5)
-- Increase data save frequency (whenever a player state is updated) to prevent data loss
+- Compat implemented for:
+  - Inventory Totem
+  - Charm of Undying
+  - Netherite Extras
