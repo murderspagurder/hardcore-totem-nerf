@@ -1,5 +1,5 @@
 plugins {
-    id("dev.isxander.modstitch.base") version "0.5.12"
+    id("dev.isxander.modstitch.base") version "0.5.14-unstable"
     id("dev.kikugie.j52j") version "2.0"
     id("dev.kikugie.postprocess.jsonlang") version "2.1-beta.4"
     id("me.modmuss50.mod-publish-plugin") version "0.8.4"
@@ -166,6 +166,13 @@ dependencies {
     // Anything else in the dependencies block will be used for all platforms.
     modstitchModImplementation("maven.modrinth:midnightlib:${midnightlibVersion}")
     modstitchJiJ("maven.modrinth:midnightlib:${midnightlibVersion}")
+}
+
+tasks {
+    processResources {
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+        outputs.upToDateWhen { false } // work around modstitch mixin cache issue
+    }
 }
 
 tasks.register<Copy>("buildAndCollect") {
