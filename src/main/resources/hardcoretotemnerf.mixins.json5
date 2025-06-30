@@ -9,7 +9,7 @@
   //? if forge {
   /*"refmap": "hardcoretotemnerf.refmap.json",
   *///?} else if fabric {
-  "refmap": "hardcoretotemnerf-refmap.json",
+  "refmap": "hardcoretotemnerf.refmap.json",
   //?}
   "mixins": [
     "NotchAppleMixin",
@@ -17,6 +17,7 @@
     "MidnightConfigUpdateMixin",
     "compat.InventoryTotemCompatMixin",
     "compat.CharmOfUndyingCompatMixin",
-    "compat.NetheriteExtrasCompatMixin"
+    "compat.NetheriteExtrasCompatMixin",
+    "compat.VoidTotemCompatMixin"
   ]
 }

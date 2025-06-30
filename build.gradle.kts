@@ -212,5 +212,20 @@ if (onlyVersion == null || onlyVersion == project.name) {
                 slug = "midnightlib"
             }
         }
+
+        curseforge {
+            accessToken = providers.environmentVariable("CURSEFORGE_API_KEY")
+            projectId = "1297306"
+            minecraftVersions.add(minecraft)
+            minecraftVersions.addAll(additionalVersions)
+            if (loader == "fabric") {
+                requires {
+                    slug = "fabric-api"
+                }
+            }
+            embeds {
+                slug = "midnightlib"
+            }
+        }
     }
 }
