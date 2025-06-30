@@ -31,6 +31,7 @@ Compatible with:
 - Inventory Totem
 - Charm of Undying
 - Netherite Extras
+- Void Totem
 
 While this was built with the hardcore game mode in mind, this would certainly
 fit well in non-hardcore worlds and servers as well with some configuration
