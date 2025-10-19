@@ -6,11 +6,6 @@
     "defaultRequire": 1
   },
   "compatibilityLevel": "JAVA_17",
-  //? if forge {
-  /*"refmap": "hardcoretotemnerf.refmap.json",
-  *///?} else if fabric {
-  "refmap": "hardcoretotemnerf.refmap.json",
-  //?}
   "mixins": [
     "NotchAppleMixin",
     "TotemMixin",

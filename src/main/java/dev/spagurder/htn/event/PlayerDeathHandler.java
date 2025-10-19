@@ -19,6 +19,7 @@ public class PlayerDeathHandler {
         if (Config.resetTrackingOnDeath) {
             playerData.maxHealthDeficit = 0f;
         }
+        playerData.outOfMaxHealth = false;
         HTNState.savePlayerData(player.getUUID());
 
         if (Config.resetMaxHealthOnDeath > 0) {

@@ -1,1 +1,4 @@
-- Void Totem compat
+- Port from modstitch to plain stonecutter/multi-script template
+- Expand support to 1.20.9/10
+- Fix issue #18
+- Remove native forge support- works on forge 1.20.1 via sinytra connector

@@ -18,7 +18,9 @@ import net.neoforged.neoforge.event.TickEvent;
 //? if >=1.20.5 {
 @EventBusSubscriber(
         modid = HardcoreTotemNerf.MOD_ID,
-        bus = EventBusSubscriber.Bus.GAME,
+        //? if <1.21.9 {
+        /^bus = EventBusSubscriber.Bus.GAME,
+        ^///?}
         value = Dist.CLIENT
 )
 //?} else {

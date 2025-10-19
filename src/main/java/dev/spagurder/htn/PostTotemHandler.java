@@ -36,7 +36,12 @@ public class PostTotemHandler {
                 float maxHealth = Math.max(prospectiveMaxHealth, Config.minimumMaxHealth);
                 playerData.maxHealthDeficit += player.getMaxHealth() - maxHealth;
                 if (maxHealth <= 0) {
-                    MinecraftServer server = player.getServer();
+                    playerData.outOfMaxHealth = true;
+                    //? if >1.21.8 {
+                    MinecraftServer server = player.level().getServer();
+                    //?} else {
+                    /*MinecraftServer server = player.getServer();
+                    *///?}
                     if (server != null) {
                         HTNUtil.broadcastMessage(server, player.getName().getString() + " used too many totems.");
                         HTNUtil.broadcastMessage(server, player.getName().getString() + " is now incapable of living.");

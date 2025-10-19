@@ -230,6 +230,11 @@
   key: {
     hardcoretotemnerf: {
       openConfig: "Open Config"
+    },
+    category: {
+      hardcoretotemnerf: {
+        keybinds: "Hardcore Totem Nerf"
+      }
     }
   },
   category: {

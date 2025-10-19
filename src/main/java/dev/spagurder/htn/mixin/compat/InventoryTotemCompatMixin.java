@@ -10,13 +10,11 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Pseudo
-//? if fabric {
-@Mixin(targets = "com.natamus.inventorytotem_common_fabric.events.TotemEvent")
-//?} else if neoforge {
-/*@Mixin(targets = "com.natamus.inventorytotem_common_neoforge.events.TotemEvent")
-*///?} else if forge {
-/*@Mixin(targets = "com.natamus.inventorytotem_common_forge.events.TotemEvent")
-*///?}
+@Mixin(targets = {
+        "com.natamus.inventorytotem_common_fabric.events.TotemEvent",
+        "com.natamus.inventorytotem_common_neoforge.events.TotemEvent",
+        "com.natamus.inventorytotem_common_forge.events.TotemEvent"
+})
 public class InventoryTotemCompatMixin {
 
     @Inject(method = "allowPlayerDeath", at = @At("RETURN"))

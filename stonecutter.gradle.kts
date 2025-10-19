@@ -1,29 +1,25 @@
 plugins {
     id("dev.kikugie.stonecutter")
-}
-stonecutter active "1.21.6-fabric"
-
-stonecutter registerChiseled tasks.register("chiseledBuild", stonecutter.chiseled) { 
-    group = "project"
-    ofTask("build")
-}
-
-stonecutter registerChiseled tasks.register("chiseledBuildAndCollect", stonecutter.chiseled) {
-    group = "project"
-    ofTask("buildAndCollect")
+    id("co.uzzu.dotenv.gradle") version "4.0.0"
+    id("fabric-loom") version "1.11-SNAPSHOT" apply false
+    id("net.neoforged.moddev") version "2.0.115" apply false
+    id ("dev.kikugie.postprocess.jsonlang") version "2.1-beta.4" apply false
+    id("me.modmuss50.mod-publish-plugin") version "0.8.+" apply false
 }
 
-stonecutter registerChiseled tasks.register("chiseledPublish", stonecutter.chiseled) {
-    group = "project"
-    ofTask("publishMods")
+stonecutter active "1.21.10-fabric"
+
+stonecutter parameters {
+    constants.match(node.metadata.project.substringAfterLast('-'), "fabric", "neoforge")
+    filters.include("**/*.fsh", "**/*.vsh")
 }
 
-allprojects {
-    repositories {
-        mavenCentral()
-        mavenLocal()
-        maven("https://maven.neoforged.net/releases")
-        maven("https://maven.fabricmc.net/")
-        maven("https://api.modrinth.com/maven")
-    }
+stonecutter tasks {
+    order("publishModrinth")
+    order("publishCurseforge")
+}
+
+for (version in stonecutter.versions.map { it.version }.distinct()) tasks.register("publish$version") {
+    group = "publishing"
+    dependsOn(stonecutter.tasks.named("publishMods") { metadata.version == version })
 }

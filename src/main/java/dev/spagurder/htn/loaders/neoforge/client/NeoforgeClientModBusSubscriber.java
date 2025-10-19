@@ -15,7 +15,9 @@ import net.neoforged.fml.common.EventBusSubscriber;
 //? if >=1.20.5 {
 @EventBusSubscriber(
         modid = HardcoreTotemNerf.MOD_ID,
-        bus = EventBusSubscriber.Bus.MOD,
+        //? if <1.21.9 {
+        /^bus = EventBusSubscriber.Bus.MOD,
+        ^///?}
         value = Dist.CLIENT
 )
 //?} else {

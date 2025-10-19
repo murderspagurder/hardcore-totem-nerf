@@ -29,7 +29,8 @@ public class PreTotemHandler {
             }
         }
 
-        return true;
+        // Check if out of max health
+        return !playerData.outOfMaxHealth;
     }
 
 }
