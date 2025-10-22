@@ -43,7 +43,7 @@ public class NotchAppleMixin {
                             playerData.maxHealthDeficit += player.getMaxHealth() - maxHealth;
                         }
                         maxHealthAttribute.setBaseValue(maxHealth);
-                        HTNState.savePlayerData(player.getUUID());
+                        HTNState.savePlayerData(player);
                     }
                 }
             }

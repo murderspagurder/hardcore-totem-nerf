@@ -24,4 +24,22 @@ public class HTNUtil {
         broadcastMessage(server, message, false);
     }
 
+    public static boolean minorVersionCheck(String v1, String v2) {
+        String[] a = v1.split("[-+]")[0].split("\\.");
+        String[] b = v2.split("[-+]")[0].split("\\.");
+        return Integer.parseInt(a[0]) == Integer.parseInt(b[0])
+                && Integer.parseInt(a[1]) == Integer.parseInt(b[1]);
+    }
+
+    public static String formatDuration(long seconds) {
+        long hours = seconds / 3600;
+        long minutes = (seconds % 3600) / 60;
+        long sec = seconds % 60;
+        if (hours > 0) {
+            return String.format("%d:%02d:%02d", hours, minutes, sec);
+        } else {
+            return String.format("%d:%02d", minutes, sec);
+        }
+    }
+
 }

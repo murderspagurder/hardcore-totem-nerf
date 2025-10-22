@@ -7,7 +7,8 @@
         maxHealth: "Max Health",
         buffs: "Buffs",
         debuffs: "Debuffs",
-        instantHealth: "Instant Health"
+        instantHealth: "Instant Health",
+        client: "Client"
       },
 
       useCooldown: {
@@ -222,6 +223,12 @@
         ".": "Instant Health Divider",
         label: {
           tooltip: "A divider to be applied to the instant healing value applied by using a totem. Setting this to one simulates vanilla behavior."
+        }
+      },
+      enableTotemCooldownTimer: {
+        ".": "Enable Totem Cooldown Timer",
+        label: {
+          tooltip: "A visual timer for totem cooldown when insights is enabled on the server."
         }
       }
     }

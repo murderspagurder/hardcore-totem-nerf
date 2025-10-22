@@ -1,7 +1,12 @@
 package dev.spagurder.htn.data;
 
+import dev.spagurder.htn.HTNInsights;
 import dev.spagurder.htn.HardcoreTotemNerf;
 import com.google.gson.Gson;
+import dev.spagurder.htn.util.Platform;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.storage.LevelResource;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -10,20 +15,24 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.UUID;
 
 public class HTNState {
 
     public static final HashMap<UUID, PlayerData> playerState = new HashMap<>();
+    public static final HashSet<UUID> networkedPlayers = new HashSet<>();
 
     private static final Gson GSON = new Gson();
 
     public static void unloadAndSavePlayerData(UUID uuid) {
+        networkedPlayers.remove(uuid);
         savePlayerData(playerState.remove(uuid), uuid);
     }
 
-    public static void savePlayerData(UUID uuid) {
-        savePlayerData(playerState.get(uuid), uuid);
+    public static void savePlayerData(ServerPlayer player) {
+        savePlayerData(playerState.get(player.getUUID()), player.getUUID());
+        HTNInsights.send(player);
     }
 
     public static void savePlayerData(PlayerData playerData, UUID uuid) {
@@ -43,7 +52,7 @@ public class HTNState {
         }
     }
 
-    public static void loadPlayerData(UUID uuid) {
+    public static void loadPlayerData(ServerPlayer player, UUID uuid) {
         Path dataFile = getPlayerDataPath(uuid);
         if (dataFile != null) {
             if (dataFile.toFile().exists()) {
@@ -63,7 +72,14 @@ public class HTNState {
     }
 
     private static Path getPlayerDataPath(UUID uuid) {
-        Path dataFile = Paths.get(HardcoreTotemNerf.MOD_ID, uuid.toString() + ".json");
+        MinecraftServer server = Platform.getServerInstance();
+        if (server == null) {
+            HardcoreTotemNerf.LOGGER.error("Failed to get player data path: server is null");
+            return null;
+        }
+        Path worldDir = server.getWorldPath(LevelResource.ROOT);
+        Path dataDir = worldDir.resolve(HardcoreTotemNerf.MOD_ID);
+        Path dataFile = dataDir.resolve(uuid.toString() + ".json");
         try {
             Files.createDirectories(dataFile.getParent());
             return dataFile;

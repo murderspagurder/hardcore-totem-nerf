@@ -20,7 +20,7 @@ public class PlayerDeathHandler {
             playerData.maxHealthDeficit = 0f;
         }
         playerData.outOfMaxHealth = false;
-        HTNState.savePlayerData(player.getUUID());
+        HTNState.savePlayerData(player);
 
         if (Config.resetMaxHealthOnDeath > 0) {
             AttributeInstance maxHealthAttribute = player.getAttribute(Attributes.MAX_HEALTH);
