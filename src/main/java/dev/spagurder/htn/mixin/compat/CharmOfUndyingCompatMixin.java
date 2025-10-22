@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(targets = "com.illusivesoulworks.charmofundying.CharmOfUndyingCommonMod")
 public class CharmOfUndyingCompatMixin {
 
-    @Inject(method = "useTotem", at = @At("RETURN"))
+    @Inject(method = "useTotem", at = @At("RETURN"), remap = false)
     private static void afterUseTotem(Pair<?, ?> totem, DamageSource damageSource, LivingEntity livingEntity, CallbackInfoReturnable<Boolean> cir) {
         if (cir.getReturnValue()) {
             PostTotemHandler.handlePostTotem((ServerPlayer) livingEntity);

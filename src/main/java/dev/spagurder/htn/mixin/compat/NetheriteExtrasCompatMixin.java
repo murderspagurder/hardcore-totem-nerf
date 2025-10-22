@@ -19,7 +19,8 @@ public class NetheriteExtrasCompatMixin {
     @Inject(
             method = "lambda$registerModEvents$1",
             at = @At("HEAD"),
-            cancellable = true
+            cancellable = true,
+            remap = false
     )
     private static void beforeAllowDeathHandler(
             LivingEntity entity, DamageSource damageSource,
@@ -33,7 +34,8 @@ public class NetheriteExtrasCompatMixin {
 
     @Inject(
             method = "lambda$registerModEvents$1",
-            at = @At("RETURN")
+            at = @At("RETURN"),
+            remap = false
     )
     private static void afterAllowDeathHandler(
             LivingEntity entity, DamageSource damageSource,

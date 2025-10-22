@@ -12,6 +12,7 @@ public class Config extends MidnightConfig {
     public static final String BUFFS = "buffs";
     public static final String DEBUFFS = "debuffs";
     public static final String INSTANT_HEALTH = "instantHealth";
+    public static final String CLIENT = "client";
 
     @Entry(category = LIMITS) public static boolean useCooldown = true;
     //? if >=1.21.4 {
@@ -115,6 +116,8 @@ public class Config extends MidnightConfig {
     @Entry(category = INSTANT_HEALTH) public static float minInstantHealthValue = 0.5f;
     @Entry(category = INSTANT_HEALTH) public static float maxInstantHealthValue = 20f;
     @Entry(category = INSTANT_HEALTH) public static float instantHealthDivider = 2f;
+
+    @Entry(category = CLIENT) public static boolean enableTotemCooldownTimer = true;
 
     private static final Set<Runnable> updateCallbacks = new LinkedHashSet<>();
 

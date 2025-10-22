@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 })
 public class InventoryTotemCompatMixin {
 
-    @Inject(method = "allowPlayerDeath", at = @At("RETURN"))
+    @Inject(method = "allowPlayerDeath", at = @At("RETURN"), remap = false)
     private static void afterAllowPlayerDeath(ServerLevel world, ServerPlayer player, CallbackInfoReturnable<Boolean> cir) {
         if (!cir.getReturnValue()) {
             PostTotemHandler.handlePostTotem(player);

@@ -1,4 +1,3 @@
-- Port from modstitch to plain stonecutter/multi-script template
-- Expand support to 1.20.9/10
-- Fix issue #18
-- Remove native forge support- works on forge 1.20.1 via sinytra connector
+- Implement optional visual cooldown timer on client
+- Discontinue support for 1.20.x, except for 1.20.1 Fabric
+- Bug fix- player data is now save specific

@@ -129,7 +129,7 @@ public class PostTotemHandler {
         health = Math.min(health, Config.maxInstantHealthValue);
         health = Math.max(health, Config.minInstantHealthValue);
         player.setHealth(health);
-        HTNState.savePlayerData(player.getUUID());
+        HTNState.savePlayerData(player);
     }
 
 }
